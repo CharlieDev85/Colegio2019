@@ -1,12 +1,17 @@
 package org.charlie.colegio.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,10 +34,15 @@ public class Materia {
 	@Column(name = "materia_nombre")
 	private String materia;
 	
-	
+	@ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="id")
 	private Grado grado;
 	
-	@ManyToOne
-    @JoinColumn(name="id", nullable=false)
+	@ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="id")
 	private Catedratico catedratico;
+	
+	@OneToMany(mappedBy = "materia", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	private List<Tarea> tareas;
+	
 }

@@ -28,8 +28,11 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "rol_id")
 	private int id;
+	
 	@Column(name = "rol")
 	private String rol;
+	
+	
 	@OneToMany(mappedBy = "rol", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	private List<Usuario> usuarios;
 }
