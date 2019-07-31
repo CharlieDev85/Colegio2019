@@ -35,7 +35,7 @@ public class Encargado {
 	private String nombre;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    @JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "encargado", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

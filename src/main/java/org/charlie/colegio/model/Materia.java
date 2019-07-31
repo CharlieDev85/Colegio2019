@@ -35,11 +35,11 @@ public class Materia {
 	private String materia;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="id")
+    @JoinColumn(name="id", insertable = false, updatable = false)
 	private Grado grado;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="id")
+    @JoinColumn(name="id", insertable = false, updatable = false)
 	private Catedratico catedratico;
 	
 	@OneToMany(mappedBy = "materia", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

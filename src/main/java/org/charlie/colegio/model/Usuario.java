@@ -33,7 +33,7 @@ public class Usuario {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usuario_id")
-	private Long id;
+	private int id;
 	
 	@Column(name = "usuario_nombre")
 	@NotEmpty(message = "*Escriba un nombre de Usuario")
