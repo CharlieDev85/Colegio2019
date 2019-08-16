@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,10 +33,12 @@ public class Catedratico {
 	private int id;
 	
 	@Column(name = "catedratico_nombre")
+	@NotEmpty(message = "*Escribe el nombre del catedratico")
 	private String nombre;
 
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
+	@Valid
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "catedratico")

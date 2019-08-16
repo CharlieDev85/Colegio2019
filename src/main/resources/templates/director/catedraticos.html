@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="director/fragments::head"></th:block>
+<body class="animsition" th:object="${director}">
+    <div class="page-wrapper">
+		<th:block th:replace="director/fragments::headerDesktop"></th:block>
+		<th:block th:replace="director/fragments::headerMobile"></th:block>
+		<th:block th:replace="director/fragments::subHeaderMobile"></th:block>
+
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            <!-- BREADCRUMB-->
+            <section class="au-breadcrumb2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="au-breadcrumb-content">
+                                <div class="au-breadcrumb-left">
+                                    <span class="au-breadcrumb-span">Estás aquí:</span>
+                                    <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                        <li class="list-inline-item active">
+                                            <a href="#">Inicio</a>
+                                        </li>
+                                        <li class="list-inline-item seprate">
+                                            <span>/</span>
+                                        </li>
+                                        <li class="list-inline-item">Catedráticos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END BREADCRUMB-->
+
+			           
+			<!-- CONTENT-->
+				<div class="main-content">
+					<div class="section__content section__content--p30">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">Catedráticos</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left"></div>
+                                    <div class="table-data__tool-right">
+                                    	<a th:href="@{/director/catedraticos/form}">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>Agregar
+                                        </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Nombre</th>
+                                                <th>Usuario</th>
+                                                <th>Correo Electrónico</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody th:each="catedratico: ${catedraticos}">
+                                            <tr class="tr-shadow">
+                                                <td th:text="${catedratico.id}">1</td>
+                                                <td th:text="${catedratico.nombre}">Alberto Cabrera</td>
+                                                <td th:text="${catedratico.usuario.usuarioNombre}">Teacherberto</td>
+                                                <td>
+                                                    <span class="block-email" th:text="${catedratico.usuario.correoElectronico}">teacher@example.com</span>
+                                                </td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Resetear Contraseña">
+                                                            <i class="zmdi zmdi-key"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Borrar">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE -->
+                            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- END CONTENT-->
+
+
+			<th:block th:replace="director/fragments::copyright"></th:block>
+        </div>
+    </div>
+	<th:block th:replace="director/fragments::endScripts"></th:block>
+</body>
+
+</html>
+<!-- end document-->

@@ -33,6 +33,10 @@
 
     <!-- Main CSS-->
     <link th:href="@{/css/theme.css}" rel="stylesheet" media="all">
+    <style type="text/css">
+    /* Chart.js */
+	@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+	</style>
 
 </head>
 
@@ -50,7 +54,7 @@
                     <div class="header__navbar">
                         <ul class="list-unstyled">
                             <li class="has-sub">
-                                <a href="#">
+                                <a th:href="@{/director/index}">
                                     <i class="fas fa-tachometer-alt"></i>Dashboard
                                     <span class="bot-line"></span>
                                 </a>
@@ -61,7 +65,7 @@
                                     <span class="bot-line"></span>Grados</a>
                             </li>
                             <li>
-                                <a href="table.html">
+                                <a th:href="@{/director/catedraticos}">
                                     <i class="fas fa-trophy"></i>
                                     <span class="bot-line"></span>Catedráticos</a>
                             </li>
@@ -146,15 +150,15 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" th:href="@{/director/index}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a th:href="@{/director/grados}">
                                 <i class="fas fa-chart-bar"></i>Grados</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a th:href="@{director/catedraticos}">
                                 <i class="fas fa-table"></i>Catedráticos</a>
                         </li>
                         <li>

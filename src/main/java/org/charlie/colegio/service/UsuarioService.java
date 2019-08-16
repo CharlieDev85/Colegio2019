@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Service("usuarioService")
 public class UsuarioService {
+	
+	@Autowired
 	private UsuarioRepository usuarioRepository;
+	@Autowired
 	private RolRepository rolRepository;
+	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
